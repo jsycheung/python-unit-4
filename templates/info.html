@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Tracking App</title>
+</head>
+<body>
+    <a href="{{ url_for('home') }}">home</a>
+    <div class="user-info">
+        <h2>My information</h2>
+        <h3>My teams</h3>
+        <ul>
+            {% for team in team_list %}
+            <li>{{ team.team_name }}</li>
+            {% endfor %}
+        </ul>
+        <h3>My projects</h3>
+        <table>
+            <tr>
+                <th>Project Name</th>
+                <th>Description</th>
+                <th>Completed?</th>
+            </tr>
+            {% for project in project_list %}
+            <tr>
+                <td>{{ project.project_name }}</td>
+                <td>{{ project.description }}</td>
+                <td>{{ project.completed }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
