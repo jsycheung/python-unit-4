@@ -19,8 +19,20 @@
         </form>
     </div>
     <div class="form-container">
+        <h3>Update Team Name</h3>
+        <form action="{{ url_for('update_team') }}" method="POST">
+            {{ update_team_form.csrf_token() }}
+            {{ update_team_form.team_selection.label }}
+            {{ update_team_form.team_selection }}
+            {{ update_team_form.new_team_name.label }}
+            {{ update_team_form.new_team_name }}
+            {{ update_team_form.submit.label }}
+            {{ update_team_form.submit }}
+        </form>
+    </div>
+    <div class="form-container">
         <h3>Delete Team</h3>
-        <form action="{{ url_for('delete_team') }}">
+        <form action="{{ url_for('delete_team') }}" method="POST">
             {{ delete_team_form.csrf_token() }}
             {{ delete_team_form.team_delete_selection.label }}
             {{ delete_team_form.team_delete_selection }}
@@ -28,7 +40,9 @@
             {{ delete_team_form.submit }}
         </form>
     </div>
+
     <div class="form-container">
+        <h3>Add Project</h3>
         <form action="{{ url_for('add_project') }}" method="POST">
             {{ project_form.csrf_token() }}
             {{ project_form.project_name.label }}
@@ -41,6 +55,28 @@
             {{ project_form.team_selection }}
             {{ project_form.submit.label }}
             {{ project_form.submit }}
+        </form>
+    </div>
+    <div class="form-container">
+        <h3>Update Project Status</h3>
+        <form action="{{ url_for('update_project') }}" method="POST">
+            {{ update_project_form.csrf_token() }}
+            {{ update_project_form.project_selection.label }}
+            {{ update_project_form.project_selection }}
+            {{ update_project_form.completed.label }}
+            {{ update_project_form.completed }}
+            {{ update_project_form.submit.label }}
+            {{ update_project_form.submit }}
+        </form>
+    </div>
+    <div class="form-container">
+        <h3>Delete Project</h3>
+        <form action="{{ url_for('delete_project') }}" method="POST">
+            {{ delete_project_form.csrf_token() }}
+            {{ delete_project_form.project_selection.label }}
+            {{ delete_project_form.project_selection }}
+            {{ delete_project_form.submit.label }}
+            {{ delete_project_form.submit }}
         </form>
     </div>
 </body>
